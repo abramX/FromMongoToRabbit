@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FromMongoToRabbit
 {
-    interface IDbRepository
+    public interface IDbRepository
     {
         void Delete<T>(Expression<Func<T, bool>> expression) where T : class, new();
         void Delete<T>(T item) where T : class, new();

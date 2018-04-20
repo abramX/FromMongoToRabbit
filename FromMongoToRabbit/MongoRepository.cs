@@ -9,7 +9,7 @@ using MongoDB.Driver;
 
 namespace FromMongoToRabbit
 {
-    class MongoRepository:IDbRepository
+    public class MongoRepository:IDbRepository
     {
         private MongoClient _provider;
         private IMongoDatabase _db;
