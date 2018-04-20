@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FromMongoToRabbit", "FromMongoToRabbit\FromMongoToRabbit.csproj", "{58450E83-AC62-477C-9D49-B5DAA6A9614E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FromMongoToRabbitLib", "FromMongoToRabbit\FromMongoToRabbitLib.csproj", "{58450E83-AC62-477C-9D49-B5DAA6A9614E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoToRabbitTest", "MongoTest\MongoToRabbitTest.csproj", "{841E1EFA-30F4-4DCC-BC04-B6A6A8588F18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppManager", "AppManager\AppManager.csproj", "{D617B120-8D69-4D04-B95D-3F12D622AB06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{58450E83-AC62-477C-9D49-B5DAA6A9614E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58450E83-AC62-477C-9D49-B5DAA6A9614E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58450E83-AC62-477C-9D49-B5DAA6A9614E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{841E1EFA-30F4-4DCC-BC04-B6A6A8588F18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{841E1EFA-30F4-4DCC-BC04-B6A6A8588F18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{841E1EFA-30F4-4DCC-BC04-B6A6A8588F18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{841E1EFA-30F4-4DCC-BC04-B6A6A8588F18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D617B120-8D69-4D04-B95D-3F12D622AB06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D617B120-8D69-4D04-B95D-3F12D622AB06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D617B120-8D69-4D04-B95D-3F12D622AB06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D617B120-8D69-4D04-B95D-3F12D622AB06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

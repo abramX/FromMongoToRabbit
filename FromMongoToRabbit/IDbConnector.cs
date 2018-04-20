@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace FromMongoToRabbit
 {
-    public class Class1
+    interface IDbConnector
     {
+        bool Connect();
+        bool Dispose();
     }
 }
