@@ -12,6 +12,7 @@ namespace AppManager
                    .WithConstructorArgument("dbName", "mydb")
                    .WithConstructorArgument("dbCollection", "products");
             KernelInstance.Bind<IEngine>().To<Engine>().InSingletonScope();
+            KernelInstance.Bind<IServicePublisher>().To<ServicePublisher>().InSingletonScope();
         }
     }
 }

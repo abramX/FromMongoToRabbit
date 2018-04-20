@@ -11,33 +11,18 @@ namespace AppManager
     {
         private IDbRepository _mongo;
 
-        public Engine(IDbRepository mongoRepository)
+        public Engine(IDbRepository mongoRepository, IServicePublisher publisher)
         {
             _mongo = mongoRepository;
+            Publisher = publisher;
         }
+
+        public IServicePublisher Publisher { get; }
+
         public void Execute()
         {
-            IList<Product> productList = _mongo.All<Product>().ToList();
-
-            var factory = new ConnectionFactory() { HostName = "localhost", UserName = "guest", Password = "guest" };
-            using (var connection = factory.CreateConnection())
-            using (var channel = connection.CreateModel())
-            {
-                channel.QueueDeclare(queue: "FirstQueueIbra",
-                                     durable: false,
-                                     exclusive: false,
-                                     autoDelete: false,
-                                     arguments: null);
-
-                string message = productList.First().Description.ToString();
-                var body = Encoding.UTF8.GetBytes(message);
-
-                channel.BasicPublish(exchange: "IbraExchange",
-                                     routingKey: "",
-                                     basicProperties: null,
-                                     body: body);
-                Console.WriteLine(" [x] Sent {0}", message);
-            }
+            Publisher.RunService(_mongo.All<Product>());
+            
 
         }
     }
