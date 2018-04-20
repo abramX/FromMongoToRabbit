@@ -13,14 +13,15 @@ namespace FromMongoToRabbit
     {
         private MongoClient _provider;
         private IMongoDatabase _db;
-        string dbName;
-        string dbCollection;
-        public MongoRepository()
+        string _dbName;
+        string _dbCollection;
+        string _connectionString;
+        public MongoRepository(string connectionString, string dbName,string dbCollection)
         {
-            dbName = "mydb";
-            dbCollection="products";
-            var connectionString = "mongodb://localhost:27017";
-            _provider = new MongoClient(connectionString);
+            _dbName = dbName;
+            _dbCollection= dbCollection;
+            _connectionString = connectionString;
+            _provider = new MongoClient(_connectionString);
             _db = _provider.GetDatabase(dbName);
         }
 
@@ -35,7 +36,7 @@ namespace FromMongoToRabbit
         public async void Delete<T>(T item) where T : class, new()
         {
             // Remove the object.
-            await _db.GetCollection<T>(dbCollection).DeleteOneAsync(a=>a.Equals(item));
+            await _db.GetCollection<T>(_dbCollection).DeleteOneAsync(a=>a.Equals(item));
         }
         public void DeleteAll<T>() where T : class, new()
         {
@@ -47,12 +48,12 @@ namespace FromMongoToRabbit
         }
         public IQueryable<T> All<T>() where T : class, new()
         {
-            return _db.GetCollection<T>(dbCollection).AsQueryable();
+            return _db.GetCollection<T>(_dbCollection).AsQueryable();
         }
    
         public async void Add<T>(T item) where T : class, new()
         {
-            await _db.GetCollection<T>(dbCollection).InsertOneAsync(item);
+            await _db.GetCollection<T>(_dbCollection).InsertOneAsync(item);
         }
         public void Add<T>(IEnumerable<T> items) where T : class, new()
         {
