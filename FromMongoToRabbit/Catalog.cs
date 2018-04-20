@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace FromMongoToRabbit
 {
-    class Catalog
+     public class Catalog
     {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public DateTime StartingDate { get; set; }
+        public DateTime ExpirationDate { get; set; }
+
+        public Catalog()
+        {
+            StartingDate = DateTime.Now;
+        }
     }
 }
