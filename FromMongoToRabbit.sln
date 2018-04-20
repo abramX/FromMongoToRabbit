@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoToRabbitTest", "MongoT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppManager", "AppManager\AppManager.csproj", "{D617B120-8D69-4D04-B95D-3F12D622AB06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitReceiver", "RabbitReceiver\RabbitReceiver.csproj", "{FC9DDE23-3D2A-4614-996C-68BFF73AC26A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D617B120-8D69-4D04-B95D-3F12D622AB06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D617B120-8D69-4D04-B95D-3F12D622AB06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D617B120-8D69-4D04-B95D-3F12D622AB06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC9DDE23-3D2A-4614-996C-68BFF73AC26A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC9DDE23-3D2A-4614-996C-68BFF73AC26A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC9DDE23-3D2A-4614-996C-68BFF73AC26A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC9DDE23-3D2A-4614-996C-68BFF73AC26A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
