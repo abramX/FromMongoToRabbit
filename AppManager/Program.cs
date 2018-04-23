@@ -32,7 +32,9 @@ namespace AppManager
                 a.RunAsLocalService();
                 a.EnableShutdown();
             }).Run();
-                      
+
+            
+
         }
     }
 }

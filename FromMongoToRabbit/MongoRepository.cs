@@ -53,7 +53,7 @@ namespace FromMongoToRabbit
    
         public async void Add<T>(T item) where T : class, new()
         {
-            await _db.GetCollection<T>(_dbCollection).InsertOneAsync(item);
+             await _db.GetCollection<T>(_dbCollection).InsertOneAsync(item);
         }
         public void Add<T>(IEnumerable<T> items) where T : class, new()
         {

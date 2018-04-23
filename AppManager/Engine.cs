@@ -22,7 +22,6 @@ namespace AppManager
         public void Execute()
         {
             Publisher.RunService(_mongo.All<Product>());
-            
 
         }
     }

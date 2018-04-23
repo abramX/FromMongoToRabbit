@@ -1,5 +1,6 @@
 ﻿using Ninject.Modules;
 using FromMongoToRabbit;
+using System;
 
 namespace AppManager
 {
