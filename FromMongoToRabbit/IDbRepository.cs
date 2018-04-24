@@ -16,5 +16,6 @@ namespace FromMongoToRabbit
         IQueryable<T> All<T>() where T : class, new();
         void Add<T>(T item) where T : class, new();
         void Add<T>(IEnumerable<T> items) where T : class, new();
+        T OrderTakeFirst<T>(System.Linq.Expressions.Expression<Func<T, string>> expression) where T : class, new();
     }
 }

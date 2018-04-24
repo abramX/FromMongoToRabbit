@@ -4,16 +4,18 @@ namespace RabbitSender
 {
     public class AppMangerService
     {
+        private IEngine _engine;
         public AppMangerService(IEngine engine)
         {
-            Engine = engine;
+            _engine = engine;
         }
 
-        public IEngine Engine { get; }
+        
 
         public void Start()
         {
-            Engine.Execute();
+            _engine.FillMongoDb();
+            _engine.Execute();
         }
     }
 }

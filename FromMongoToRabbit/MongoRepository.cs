@@ -41,7 +41,7 @@ namespace FromMongoToRabbit
         {
             return All<T>().Where(expression).SingleOrDefault();
         }
-        public T Order<T>(System.Linq.Expressions.Expression<Func<T, bool>> expression) where T : class, new()
+        public T OrderTakeFirst<T>(System.Linq.Expressions.Expression<Func<T,string>> expression) where T : class, new()
         {
             return All<T>().OrderBy(expression).FirstOrDefault();
         }
