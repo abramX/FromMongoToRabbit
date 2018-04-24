@@ -31,14 +31,14 @@ namespace RabbitReceiver
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
-                //channel.QueueDeclare(queue: queueName,
-                //                     durable: false,
-                //                     exclusive: false,
-                //                     autoDelete: false,
-                //                     arguments: null);
-                //channel.QueueBind(queue: queueName,
-                //  exchange: exchangeName,
-                //  routingKey: "");
+                channel.QueueDeclare(queue: queueName,
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
+                channel.QueueBind(queue: queueName,
+                  exchange: exchangeName,
+                  routingKey: "");
                 var consumer = new EventingBasicConsumer(channel);
                 consumer.Received += (model, ea) =>
                 {

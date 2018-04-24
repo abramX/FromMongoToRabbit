@@ -1,6 +1,6 @@
 ﻿using Ninject.Modules;
 using FromMongoToRabbit;
-using System;
+using System.Configuration;
 
 namespace RabbitReceiver
 {
@@ -10,8 +10,9 @@ namespace RabbitReceiver
         {
             KernelInstance.Bind<IDbRepository>().To<MongoRepository>().InSingletonScope()
                    .WithConstructorArgument("connectionString", "mongodb://localhost:27017")
-                   .WithConstructorArgument("dbName", "mydbreceived")
-                   .WithConstructorArgument("dbCollection", "products_received");
+                   .WithConstructorArgument("dbName", ConfigurationManager.AppSettings["MongoDbName"])
+                   .WithConstructorArgument("dbCollection", ConfigurationManager.AppSettings["MongoDbCollection"]);
+                 
             KernelInstance.Bind<IConsumerEngine>().To<ConsumerEngine>().InSingletonScope();
             KernelInstance.Bind<IConsumerServiceReceiver>().To<ConsumerServiceReceiver>().InSingletonScope();
         }

@@ -1,7 +1,7 @@
 ﻿using Quartz;
 using System;
 
-namespace AppManager
+namespace RabbitSender
 {
     public class SendMesssageJob : IJob
     {

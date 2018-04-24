@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using MongoDB;
 using MongoDB.Driver;
 
 namespace FromMongoToRabbit
@@ -44,6 +40,10 @@ namespace FromMongoToRabbit
         public T Single<T>(System.Linq.Expressions.Expression<Func<T, bool>> expression) where T : class, new()
         {
             return All<T>().Where(expression).SingleOrDefault();
+        }
+        public T Order<T>(System.Linq.Expressions.Expression<Func<T, bool>> expression) where T : class, new()
+        {
+            return All<T>().OrderBy(expression).FirstOrDefault();
         }
         public IQueryable<T> All<T>() where T : class, new()
         {

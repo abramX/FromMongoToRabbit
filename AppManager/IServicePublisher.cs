@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AppManager
+namespace RabbitSender
 {
     public interface IServicePublisher
     {

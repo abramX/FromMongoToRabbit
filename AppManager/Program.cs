@@ -1,9 +1,4 @@
-﻿using Ninject;
-using System;
-using System.Reflection;
-using System.Threading.Tasks;
-using FromMongoToRabbit;
-using Ninject.Modules;
+﻿using System;
 using Quartz;
 using Topshelf;
 using Topshelf.Ninject;
@@ -12,7 +7,7 @@ using Topshelf.Quartz.Ninject;
 using System.Configuration;
 
 
-namespace AppManager
+namespace RabbitSender
 {
     class Program
     {

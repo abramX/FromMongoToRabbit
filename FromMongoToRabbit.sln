@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FromMongoToRabbitLib", "Fro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoToRabbitTest", "MongoTest\MongoToRabbitTest.csproj", "{841E1EFA-30F4-4DCC-BC04-B6A6A8588F18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppManager", "AppManager\AppManager.csproj", "{D617B120-8D69-4D04-B95D-3F12D622AB06}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitSender", "AppManager\RabbitSender.csproj", "{D617B120-8D69-4D04-B95D-3F12D622AB06}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitReceiver", "RabbitReceiver\RabbitReceiver.csproj", "{FC9DDE23-3D2A-4614-996C-68BFF73AC26A}"
 EndProject

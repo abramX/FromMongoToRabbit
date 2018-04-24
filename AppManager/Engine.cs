@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FromMongoToRabbit;
-using RabbitMQ.Client;
+﻿using FromMongoToRabbit;
 
-namespace AppManager
+namespace RabbitSender
 {
     public class Engine : IEngine
     {
         private IDbRepository _mongo;
+        private IServicePublisher Publisher;
 
         public Engine(IDbRepository mongoRepository, IServicePublisher publisher)
         {
             _mongo = mongoRepository;
             Publisher = publisher;
         }
-
-        public IServicePublisher Publisher { get; }
 
         public void Execute()
         {

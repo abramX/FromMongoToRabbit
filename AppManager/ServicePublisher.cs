@@ -6,7 +6,7 @@ using Newtonsoft;
 using Newtonsoft.Json;
 using System.Configuration;
 
-namespace AppManager
+namespace RabbitSender
 {
     public class ServicePublisher : IServicePublisher
     {
@@ -22,11 +22,11 @@ namespace AppManager
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
-                //channel.QueueDeclare(queue: queueName,
-                //                     durable: false,
-                //                     exclusive: false,
-                //                     autoDelete: false,
-                //                     arguments: null);
+                channel.QueueDeclare(queue: queueName,
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
 
                 string message = JsonConvert.SerializeObject(listToSend);
                 var body = Encoding.UTF8.GetBytes(message);

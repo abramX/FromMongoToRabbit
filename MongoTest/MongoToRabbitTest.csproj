@@ -52,6 +52,20 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppManager\RabbitSender.csproj">
+      <Project>{d617b120-8d69-4d04-b95d-3f12d622ab06}</Project>
+      <Name>RabbitSender</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FromMongoToRabbit\FromMongoToRabbitLib.csproj">
+      <Project>{58450e83-ac62-477c-9d49-b5daa6a9614e}</Project>
+      <Name>FromMongoToRabbitLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RabbitReceiver\RabbitReceiver.csproj">
+      <Project>{fc9dde23-3d2a-4614-996c-68bff73ac26a}</Project>
+      <Name>RabbitReceiver</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

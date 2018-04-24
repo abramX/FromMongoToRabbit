@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AppManager
+namespace RabbitSender
 {
     public class AppMangerService
     {
