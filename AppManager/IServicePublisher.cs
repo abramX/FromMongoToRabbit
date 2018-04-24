@@ -2,7 +2,7 @@
 
 namespace AppManager
 {
-    interface IServicePublisher
+    public interface IServicePublisher
     {
         void RunService<T>(IEnumerable<T> listToSend);
     }

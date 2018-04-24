@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RabbitReceiver
 {
-    internal class ConsumerService
+    public class ConsumerService
     {
         public ConsumerService(IConsumerEngine engine)
         {

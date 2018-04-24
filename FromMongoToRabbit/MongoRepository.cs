@@ -24,7 +24,6 @@ namespace FromMongoToRabbit
             _provider = new MongoClient(_connectionString);
             _db = _provider.GetDatabase(dbName);
         }
-
         public void Delete<T>(System.Linq.Expressions.Expression<Func<T, bool>> expression) where T : class, new()
         {
             var items = All<T>().Where(expression);
@@ -49,8 +48,7 @@ namespace FromMongoToRabbit
         public IQueryable<T> All<T>() where T : class, new()
         {
             return _db.GetCollection<T>(_dbCollection).AsQueryable();
-        }
-   
+        }  
         public async void Add<T>(T item) where T : class, new()
         {
              await _db.GetCollection<T>(_dbCollection).InsertOneAsync(item);

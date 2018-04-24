@@ -9,16 +9,16 @@ namespace RabbitReceiver
     public class ConsumerEngine: IConsumerEngine
     {
         IDbRepository _mongo;
-        IConsumerServicePublisher _publisher;
+        IConsumerServiceReceiver _receiver;
 
-        public ConsumerEngine(IDbRepository mongo, IConsumerServicePublisher publisher)
+        public ConsumerEngine(IDbRepository mongo, IConsumerServiceReceiver receiver)
         {
             _mongo = mongo;
-            _publisher = publisher;
+            _receiver = receiver;
         }
         public void Execute()
         {
-            _publisher.executePublisher();
+            _receiver.executeReceiver();
         }
     }
 }

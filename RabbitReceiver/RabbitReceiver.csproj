@@ -45,6 +45,7 @@
       <HintPath>..\packages\RabbitMQ.Client.5.0.1\lib\net451\RabbitMQ.Client.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -62,9 +63,9 @@
   <ItemGroup>
     <Compile Include="ConsumerEngine.cs" />
     <Compile Include="ConsumerService.cs" />
-    <Compile Include="ConsumerServicePublisher.cs" />
+    <Compile Include="ConsumerServiceReceiver.cs" />
     <Compile Include="IConsumerEngine.cs" />
-    <Compile Include="IConsumerServicePublisher.cs" />
+    <Compile Include="IConsumerServiceReceiver.cs" />
     <Compile Include="IocReceiverInstaller.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

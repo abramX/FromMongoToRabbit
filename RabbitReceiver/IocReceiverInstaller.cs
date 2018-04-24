@@ -13,7 +13,7 @@ namespace RabbitReceiver
                    .WithConstructorArgument("dbName", "mydbreceived")
                    .WithConstructorArgument("dbCollection", "products_received");
             KernelInstance.Bind<IConsumerEngine>().To<ConsumerEngine>().InSingletonScope();
-            KernelInstance.Bind<IConsumerServicePublisher>().To<ConsumerServicePublisher>().InSingletonScope();
+            KernelInstance.Bind<IConsumerServiceReceiver>().To<ConsumerServiceReceiver>().InSingletonScope();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace AppManager
 {
-    interface IEngine
+    public interface IEngine
     {
         void Execute();
     }

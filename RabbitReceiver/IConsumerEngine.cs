@@ -1,6 +1,6 @@
 ﻿namespace RabbitReceiver
 {
-    interface IConsumerEngine
+    public interface IConsumerEngine
     {
          void Execute();
     }

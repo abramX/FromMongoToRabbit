@@ -2,7 +2,7 @@
 
 namespace AppManager
 {
-    internal class AppMangerService
+    public class AppMangerService
     {
         public AppMangerService(IEngine engine)
         {

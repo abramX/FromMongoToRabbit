@@ -7,7 +7,7 @@ using RabbitMQ.Client;
 
 namespace AppManager
 {
-    class Engine : IEngine
+    public class Engine : IEngine
     {
         private IDbRepository _mongo;
 
@@ -22,7 +22,6 @@ namespace AppManager
         public void Execute()
         {
             Publisher.RunService(_mongo.All<Product>());
-
         }
     }
 }
