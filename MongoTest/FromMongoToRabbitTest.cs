@@ -17,17 +17,6 @@ namespace MongoTest
         [TestCase]
         void MessageIsSent()
         {
-            IList<Product> listaProdotti;
-            for(var i = 0; i < 30; i++)
-            {
-                Product p = new Product {
-                    Name="prodotto"+i,
-                    Description="descrizione"+i,
-                    Price=300.00,
-
-                };
-                //listaProdotti.Add(p);
-            }
             
         }
     }
