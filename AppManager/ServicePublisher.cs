@@ -17,26 +17,32 @@ namespace RabbitSender
             var password = ConfigurationManager.AppSettings["RabbitPassword"];
             var exchangeName = ConfigurationManager.AppSettings["RabbitExchangeName"];
             var queueName = ConfigurationManager.AppSettings["RabbitQueueName"];
-
-            var factory = new ConnectionFactory() { HostName = hostaName, UserName = userName, Password = password };
-            using (var connection = factory.CreateConnection())
-            using (var channel = connection.CreateModel())
+            try
             {
-                channel.QueueDeclare(queue: queueName,
-                                     durable: false,
-                                     exclusive: false,
-                                     autoDelete: false,
-                                     arguments: null);
+                var factory = new ConnectionFactory() { HostName = hostaName, UserName = userName, Password = password };
+                using (var connection = factory.CreateConnection())
+                using (var channel = connection.CreateModel())
+                {
+                    channel.QueueDeclare(queue: queueName,
+                                         durable: false,
+                                         exclusive: false,
+                                         autoDelete: false,
+                                         arguments: null);
 
-                string message = JsonConvert.SerializeObject(listToSend);
-                var body = Encoding.UTF8.GetBytes(message);
+                    string message = JsonConvert.SerializeObject(listToSend);
+                    var body = Encoding.UTF8.GetBytes(message);
 
-                channel.BasicPublish(exchange: exchangeName,
-                                     routingKey: "",
-                                     basicProperties: null,
-                                     body: body);
+                    channel.BasicPublish(exchange: exchangeName,
+                                         routingKey: "",
+                                         basicProperties: null,
+                                         body: body);
 
-                Console.WriteLine(" [x] Sent {0}", message);
+                    Console.WriteLine(" [x] Sent {0}", message);
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Errore nell'invio: " + e.Message);
             }
 
         }

@@ -14,9 +14,11 @@ namespace FromMongoToRabbit
         public string Description { get; set; }
         public DateTime CreationDate { get; set; }
         public Catalog PriceList { get; set; }
+        public bool Sent { get; set; }
         public Product()
         {
             CreationDate = DateTime.Now;
+            Sent = false;
         }
     }
 }

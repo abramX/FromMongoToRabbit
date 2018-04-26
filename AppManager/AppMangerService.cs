@@ -10,11 +10,9 @@ namespace RabbitSender
             _engine = engine;
         }
 
-        
-
         public void Start()
         {
-            _engine.FillMongoDb();
+            //_engine.FillMongoDb();
             _engine.Execute();
         }
     }
