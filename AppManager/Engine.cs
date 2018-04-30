@@ -1,41 +1,28 @@
 ﻿using FromMongoToRabbit;
 using System.Collections.Generic;
+using log4net;
 
 namespace RabbitSender
 {
     public class Engine : IEngine
     {
-        private IDbRepository _mongo;
+        private IProductDbSender _mongo;
         private IServicePublisher Publisher;
+        private ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public Engine(IDbRepository mongoRepository, IServicePublisher publisher)
+        public Engine(IProductDbSender mongoRepositorySender, IServicePublisher publisher)
         {
-            _mongo = mongoRepository;
+            _mongo = mongoRepositorySender;
             Publisher = publisher;
         }
         public void Execute()
         {
-            Publisher.RunService(_mongo.All<Product>());
+            Log.Info("Starting Sending Process");
+            Publisher.RunService(_mongo.GetUnprocessed());
+
+            _mongo.MarkAsProcessed(_mongo.GetUnprocessed());
+            Log.Info("Marking as sent the sent producs");
         } 
-        public void FillMongoDb()
-        {
-
-            for (var i = 0; i < 50; i++)
-            {
-                Product p = new Product
-                {
-                    Name = "prodotto" + i,
-                    Description = "descrizione" + i,
-                    PriceList = new Catalog
-                    {
-                        Name = "Catalogo 1",
-                        Description = "Catalago principale con i prezzi base",
-                        Price = i * 10
-                    }
-
-                };
-                _mongo.Add<Product>(p);
-            }
-        }
+        
     }
 }

@@ -1,11 +1,12 @@
 ﻿using Quartz;
-using System;
+using log4net;
 
 namespace RabbitSender
 {
     public class SendMesssageJob : IJob
     {
         IEngine _producer;
+        private ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public SendMesssageJob(IEngine producer)
         {
@@ -14,7 +15,9 @@ namespace RabbitSender
 
         public void Execute(IJobExecutionContext context)
         {
-            _producer.Execute();          
+            Log.Info("Restarting the scheduled sending job!");
+            _producer.Execute();
+            
         }
     }
 }

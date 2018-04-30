@@ -66,9 +66,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Catalog.cs" />
-    <Compile Include="IDbRepository.cs" />
-    <Compile Include="MongoRepository.cs" />
+    <Compile Include="IProductDbReceiver.cs" />
+    <Compile Include="IProductDbSender.cs" />
+    <Compile Include="MongoDBClient.cs" />
+    <Compile Include="MongoDbClientReceiver.cs" />
     <Compile Include="Product.cs" />
+    <Compile Include="ProductDbReceiver.cs" />
+    <Compile Include="ProductDbSender.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
