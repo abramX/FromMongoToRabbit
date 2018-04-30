@@ -1,19 +1,24 @@
-﻿using System;
+﻿
+using System;
+using System.Web.Http;
 
 namespace RabbitSender
 {
     public class AppMangerService
     {
         private IEngine _engine;
-        public AppMangerService(IEngine engine)
+        private IConsumerEngine _consumerEngine;
+        public AppMangerService(IEngine engine, IConsumerEngine consumerEngine)
         {
             _engine = engine;
+            _consumerEngine = consumerEngine;
         }
 
         public void Start()
-        {
-            //_engine.FillMongoDb();
+        {  
             _engine.Execute();
+            _consumerEngine.Execute();
+            
         }
     }
 }

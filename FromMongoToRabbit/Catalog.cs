@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FromMongoToRabbit
 {
-     public class Catalog
+    public class Catalog
     {
         public string Name { get; set; }
         public string Description { get; set; }

@@ -2,14 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Newtonsoft;
 using Newtonsoft.Json;
 using System.Configuration;
+using log4net;
+
 
 namespace RabbitSender
 {
     public class ServicePublisher : IServicePublisher
     {
+        private ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public void RunService<T>(IEnumerable<T> listToSend) 
         {
             var hostaName = ConfigurationManager.AppSettings["RabbitHostName"];
@@ -17,6 +19,7 @@ namespace RabbitSender
             var password = ConfigurationManager.AppSettings["RabbitPassword"];
             var exchangeName = ConfigurationManager.AppSettings["RabbitExchangeName"];
             var queueName = ConfigurationManager.AppSettings["RabbitQueueName"];
+            Log.Info("[x] Sending products: ");
             try
             {
                 var factory = new ConnectionFactory() { HostName = hostaName, UserName = userName, Password = password };
@@ -36,13 +39,14 @@ namespace RabbitSender
                                          routingKey: "",
                                          basicProperties: null,
                                          body: body);
-
-                    Console.WriteLine(" [x] Sent {0}", message);
+                    Log.Info("[x] Sent products: "+ message);
+                    Console.WriteLine(" [x] Sent ");
                 }
             }
             catch(Exception e)
             {
                 Console.WriteLine("Errore nell'invio: " + e.Message);
+                Log.Error(e.Message);
             }
 
         }
