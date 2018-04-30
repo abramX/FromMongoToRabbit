@@ -15,8 +15,7 @@ namespace RabbitSender
                 .ToSelf()
                 .InSingletonScope()
                 .WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["MongoConnectionSender"].ConnectionString);
-
-            
+           
             KernelInstance.Bind<IProductDbSender>()
                .To<ProductDbSender>()
                .InSingletonScope();
