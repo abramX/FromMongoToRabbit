@@ -25,12 +25,12 @@ namespace AppManager
                 using (var connection = factory.CreateConnection())
                 using (var channel = connection.CreateModel())
                 {
-                    channel.QueueDeclare(queue: queueName,
-                                         durable: false,
-                                         exclusive: false,
-                                         autoDelete: false,
-                                         arguments: null);
 
+                    channel.ExchangeDeclare(
+                        exchange: exchangeName,
+                        type: "fanout",
+                        durable:false,
+                        autoDelete:false);
                     string message = JsonConvert.SerializeObject(listToSend);
                     var body = Encoding.UTF8.GetBytes(message);
 

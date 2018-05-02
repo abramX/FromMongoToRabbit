@@ -9,12 +9,6 @@ namespace AppManager
         public override void Load()
         {
 
-
-            /*KernelInstance.Bind<MongoDbClient>()
-                .ToSelf()
-                .InSingletonScope()
-                .WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["MongoConnectionSender"].ConnectionString);
-         */
             Bind<IMongoDbClient>()
                 .To<MongoDbClient>()
                 .WhenInjectedInto(typeof(ProductDbSender))
@@ -34,11 +28,6 @@ namespace AppManager
             Bind<IProductDbSender>()
                .To<ProductDbSender>()
                .InSingletonScope();
-
-//            KernelInstance.Bind<MongoDbClientReceiver>()
-//                .ToSelf()
-//                .InSingletonScope()
-//                .WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["MongoConnectionReceiver"].ConnectionString);
 
             Bind<IProductDbReceiver>()
                .To<ProductDbReceiver>()
