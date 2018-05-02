@@ -1,4 +1,10 @@
 # Build results
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+
+# Build results
 [Dd]ebug/
 [Rr]elease/
 x64/
@@ -48,7 +54,21 @@ x64/
 .DS_Store*
 Icon?
 
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile
 
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+
+# Guidance Automation Toolkit
+*.gpState
 
 # ReSharper is a .NET coding add-in
 _ReSharper*/
@@ -64,6 +84,18 @@ _TeamCity*
 *.ncrunch*
 .*crunch*.local.xml
 
+# Installshield output folder
+[Ee]xpress/
+
+# DocProject is a documentation generator add-in
+DocProject/buildhelp/
+DocProject/Help/*.HxT
+DocProject/Help/*.HxC
+DocProject/Help/*.hhc
+DocProject/Help/*.hhk
+DocProject/Help/*.hhp
+DocProject/Help/Html2
+DocProject/Help/html
 
 # Click-Once directory
 publish/
@@ -71,6 +103,9 @@ publish/
 # Publish Web Output
 *.Publish.xml
 
+# Windows Azure Build Output
+csx
+*.build.csdef
 
 # Windows Store app package directory
 AppPackages/
@@ -90,6 +125,9 @@ tempbin/
 
 # EPiServer Site file (VPP)
 AppData/
+
+# RIA/Silverlight projects
+Generated_Code/
 
 # Backup & report files from converting an old project file to a newer
 # Visual Studio version. Backup files are not needed, because we have git ;-)
