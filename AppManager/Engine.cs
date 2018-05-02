@@ -1,5 +1,4 @@
 ﻿using FromMongoToRabbit;
-using System.Collections.Generic;
 using log4net;
 
 namespace RabbitSender

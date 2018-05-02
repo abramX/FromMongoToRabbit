@@ -26,11 +26,13 @@ namespace RabbitSender
             var exchangeName = ConfigurationManager.AppSettings["RabbitExchangeName"];
             var queueName = ConfigurationManager.AppSettings["RabbitQueueName"];
 
-            var factory = new ConnectionFactory() { HostName = hostaName, UserName = userName, Password = password };
-            IList<Product> message;
-            using (var connection = factory.CreateConnection())
-            using (var channel = connection.CreateModel())
+            try
             {
+                var factory = new ConnectionFactory() { HostName = hostaName, UserName = userName, Password = password };
+                IList<Product> message;
+                var connection = factory.CreateConnection();
+                var channel = connection.CreateModel();
+
                 channel.QueueDeclare(queue: queueName,
                                      durable: false,
                                      exclusive: false,
@@ -43,19 +45,20 @@ namespace RabbitSender
                 consumer.Received += (model, ea) =>
                 {
                     var body = ea.Body;
-                    message = JsonConvert.DeserializeObject <IList<Product >> (Encoding.UTF8.GetString(body));
-                    Log.Info("Received Message: " + message);
+                    message = JsonConvert.DeserializeObject<IList<Product>>(Encoding.UTF8.GetString(body));
+                    Log.Info("Received " + message.Count.ToString()+ "Message");
                     _mongo.Save(message);
                     Log.Info("Messages Saved");
-                    
-                    Console.WriteLine(" [x] Received {0}", message);                   
+
+                    Console.WriteLine(" [x] Received {0}", message);
                 };
                 channel.BasicConsume(queue: queueName,
                                                      autoAck: true,
                                                      consumer: consumer);
-
-                Console.ReadLine();
-                                
+            }catch(Exception e)
+            {
+                Console.WriteLine("Errore nella ricezione: " + e.Message);
+                Log.Error("Errore nella ricezione: " + e.Message);
             }
 
         }

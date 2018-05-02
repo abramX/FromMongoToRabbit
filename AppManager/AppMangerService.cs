@@ -1,8 +1,4 @@
-﻿
-using System;
-using System.Web.Http;
-
-namespace RabbitSender
+﻿namespace RabbitSender
 {
     public class AppMangerService
     {

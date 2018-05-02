@@ -1,7 +1,6 @@
 ﻿using Ninject.Modules;
 using FromMongoToRabbit;
 using System.Configuration;
-using AppManager;
 
 namespace RabbitSender
 {

@@ -39,14 +39,14 @@ namespace RabbitSender
                                          routingKey: "",
                                          basicProperties: null,
                                          body: body);
-                    Log.Info("[x] Sent products: "+ message);
+                    Log.Info("Sent products: "+ message);
                     Console.WriteLine(" [x] Sent ");
                 }
             }
             catch(Exception e)
             {
                 Console.WriteLine("Errore nell'invio: " + e.Message);
-                Log.Error(e.Message);
+                Log.Error("Errore nell'invio(Rabbit): " + e.Message);
             }
 
         }
