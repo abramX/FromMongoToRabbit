@@ -60,9 +60,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AppManager\RabbitSender.csproj">
+    <ProjectReference Include="..\AppManager\AppManager.csproj">
       <Project>{d617b120-8d69-4d04-b95d-3f12d622ab06}</Project>
-      <Name>RabbitSender</Name>
+      <Name>AppManager</Name>
     </ProjectReference>
     <ProjectReference Include="..\FromMongoToRabbit\FromMongoToRabbitLib.csproj">
       <Project>{58450E83-AC62-477C-9D49-B5DAA6A9614E}</Project>

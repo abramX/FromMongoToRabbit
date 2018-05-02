@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FromMongoToRabbitLib", "FromMongoToRabbit\FromMongoToRabbitLib.csproj", "{58450E83-AC62-477C-9D49-B5DAA6A9614E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitSender", "AppManager\RabbitSender.csproj", "{D617B120-8D69-4D04-B95D-3F12D622AB06}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppManager", "AppManager\AppManager.csproj", "{D617B120-8D69-4D04-B95D-3F12D622AB06}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitSenderTest", "RabbitSenderTest\RabbitSenderTest.csproj", "{A0992971-BBCD-4F13-89B8-11F7128688D9}"
 EndProject

@@ -1,16 +1,16 @@
 ﻿using System;
-using Topshelf;
-using Topshelf.Ninject;
-using Topshelf.WebApi;
-using Topshelf.WebApi.Ninject;
-using Quartz;
-using Topshelf.Quartz;
-using Topshelf.Quartz.Ninject;
 using System.Configuration;
 using System.Web.Http;
 using log4net;
+using Quartz;
+using Topshelf;
+using Topshelf.Ninject;
+using Topshelf.Quartz;
+using Topshelf.Quartz.Ninject;
+using Topshelf.WebApi;
+using Topshelf.WebApi.Ninject;
 
-namespace RabbitSender
+namespace AppManager
 {
     class Program
     {

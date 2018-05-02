@@ -1,9 +1,8 @@
-﻿namespace RabbitSender
+﻿namespace AppManager
 {
     public class ConsumerEngine: IConsumerEngine
     {
-        
-        IConsumerServiceReceiver _receiver;
+        readonly IConsumerServiceReceiver _receiver;
 
         public ConsumerEngine(IConsumerServiceReceiver receiver)
         {
@@ -11,7 +10,7 @@
         }
         public void Execute()
         {
-            _receiver.executeReceiver();
+            _receiver.ExecuteReceiver();
         }
     }
 }

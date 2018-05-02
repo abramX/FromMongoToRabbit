@@ -10,7 +10,7 @@ namespace FromMongoToRabbit
         void Save(IList<Product> products);
 
 
-        void MarkAsProcessed(IList<Product> products);
+        void MarkAsProcessed(IEnumerable<Product> products);
 
 
         IList<Product> GetUnprocessed();

@@ -1,9 +1,9 @@
-﻿namespace RabbitSender
+﻿namespace AppManager
 {
     public class AppMangerService
     {
-        private IEngine _engine;
-        private IConsumerEngine _consumerEngine;
+        private readonly IEngine _engine;
+        private readonly IConsumerEngine _consumerEngine;
         public AppMangerService(IEngine engine, IConsumerEngine consumerEngine)
         {
             _engine = engine;
@@ -13,8 +13,7 @@
         public void Start()
         {  
             _engine.Execute();
-            _consumerEngine.Execute();
-            
+            _consumerEngine.Execute();            
         }
     }
 }

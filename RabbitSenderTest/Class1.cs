@@ -1,5 +1,5 @@
-﻿using NUnit.Framework;
-using RabbitSender;
+﻿using AppManager;
+using NUnit.Framework;
 using Ninject;
 using FromMongoToRabbit;
 

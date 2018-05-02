@@ -1,4 +1,4 @@
-﻿namespace RabbitSender
+﻿namespace AppManager
 {
     public interface IEngine
     {

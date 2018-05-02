@@ -1,7 +1,7 @@
-﻿namespace RabbitSender
+﻿namespace AppManager
 {
     public interface IConsumerServiceReceiver
     {
-       void executeReceiver();
+       void ExecuteReceiver();
     }
 }

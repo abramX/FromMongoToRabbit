@@ -1,24 +1,24 @@
 ﻿using System;
-using System.Text;
-using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
-using FromMongoToRabbit;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Text;
+using FromMongoToRabbit;
 using log4net;
+using Newtonsoft.Json;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 
-namespace RabbitSender
+namespace AppManager
 {
     public class ConsumerServiceReceiver: IConsumerServiceReceiver
     {
-        private IProductDbReceiver _mongo;
-        private ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private readonly IProductDbReceiver _mongo;
+        private readonly ILog _log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public ConsumerServiceReceiver(IProductDbReceiver mongoRepositoryReceiver) {
             _mongo = mongoRepositoryReceiver;
         }
 
-        public void executeReceiver()
+        public void ExecuteReceiver()
         {
             var hostaName = ConfigurationManager.AppSettings["RabbitHostName"];
             var userName = ConfigurationManager.AppSettings["RabbitUserName"];
@@ -46,9 +46,9 @@ namespace RabbitSender
                 {
                     var body = ea.Body;
                     message = JsonConvert.DeserializeObject<IList<Product>>(Encoding.UTF8.GetString(body));
-                    Log.Info("Received " + message.Count.ToString()+ "Message");
+                    _log.Info("Received " + message.Count.ToString()+ "Message");
                     _mongo.Save(message);
-                    Log.Info("Messages Saved");
+                    _log.Info("Messages Saved");
 
                     Console.WriteLine(" [x] Received {0}", message);
                 };
@@ -58,7 +58,7 @@ namespace RabbitSender
             }catch(Exception e)
             {
                 Console.WriteLine("Errore nella ricezione: " + e.Message);
-                Log.Error("Errore nella ricezione: " + e.Message);
+                _log.Error("Errore nella ricezione: " + e.Message);
             }
 
         }

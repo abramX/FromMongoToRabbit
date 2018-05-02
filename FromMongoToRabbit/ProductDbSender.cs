@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using System;
+using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -26,7 +27,7 @@ namespace FromMongoToRabbit
            
         }
 
-        public void MarkAsProcessed(IList<Product> products)
+        public void MarkAsProcessed(IEnumerable<Product> products)
         {
             var idList = products.Select(s => s.Id).ToList();
 
@@ -38,9 +39,11 @@ namespace FromMongoToRabbit
 
         public IList<Product> GetUnprocessed()
         {
+            
             return _mongoCollection
                 .Find(Builders<Product>.Filter.Where(s => s.Sent == false))
                 .ToList();
+           
         }
 
         public void FillMongoDb()

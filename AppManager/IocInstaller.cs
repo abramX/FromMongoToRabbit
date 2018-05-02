@@ -1,8 +1,8 @@
-﻿using Ninject.Modules;
+﻿using System.Configuration;
 using FromMongoToRabbit;
-using System.Configuration;
+using Ninject.Modules;
 
-namespace RabbitSender
+namespace AppManager
 {
     public class IocInstaller : NinjectModule
     {
@@ -27,7 +27,7 @@ namespace RabbitSender
             KernelInstance.Bind<IProductDbReceiver>()
                .To<ProductDbReceiver>()
                .InSingletonScope();
-
+            //Producer
             KernelInstance.Bind<IEngine>()
                 .To<Engine>()
                 .InSingletonScope();
@@ -39,8 +39,9 @@ namespace RabbitSender
             KernelInstance.Bind<IConsumerEngine>()
                 .To<ConsumerEngine>()
                 .InSingletonScope();
-            KernelInstance.Bind<IConsumerServiceReceiver>().To<ConsumerServiceReceiver>().InSingletonScope();
-            //KernelInstance.Bind<ProductController>().ToSelf();
+            KernelInstance.Bind<IConsumerServiceReceiver>()
+                .To<ConsumerServiceReceiver>()
+                .InSingletonScope();
         }
     }
 }

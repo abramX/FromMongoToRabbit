@@ -1,13 +1,12 @@
-﻿using RabbitMQ.Client;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
 using System.Configuration;
+using System.Text;
 using log4net;
+using Newtonsoft.Json;
+using RabbitMQ.Client;
 
-
-namespace RabbitSender
+namespace AppManager
 {
     public class ServicePublisher : IServicePublisher
     {
