@@ -12,7 +12,7 @@ using Topshelf.WebApi.Ninject;
 
 namespace AppManager
 {
-    class Program
+    static class Program
     {
         private static ILog Log =LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         static void Main(string[] args)
@@ -20,7 +20,7 @@ namespace AppManager
             Sender();
         }
 
-        public static void Sender()
+        private static void Sender()
         {
             Log.Info("Start log INFO...");
             var cronPublicationExpression = ConfigurationManager.AppSettings["cronPublicationExpression"];
