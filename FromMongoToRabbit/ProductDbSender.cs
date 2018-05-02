@@ -1,5 +1,4 @@
-﻿using System;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,7 +8,7 @@ namespace FromMongoToRabbit
     {
         private readonly IMongoCollection<Product> _mongoCollection;
 
-        public ProductDbSender(MongoDbClient mongoDbClient)
+        public ProductDbSender(IMongoDbClient mongoDbClient)
         {
             _mongoCollection = mongoDbClient.GetCollection<Product>("products");
         }

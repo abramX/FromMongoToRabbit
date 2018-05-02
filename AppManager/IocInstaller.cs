@@ -8,38 +8,54 @@ namespace AppManager
     {
         public override void Load()
         {
-            
 
-            KernelInstance.Bind<MongoDbClient>()
+
+            /*KernelInstance.Bind<MongoDbClient>()
                 .ToSelf()
                 .InSingletonScope()
                 .WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["MongoConnectionSender"].ConnectionString);
-           
-            KernelInstance.Bind<IProductDbSender>()
+         */
+            Bind<IMongoDbClient>()
+                .To<MongoDbClient>()
+                .WhenInjectedInto(typeof(ProductDbSender))
+                .InSingletonScope()
+                .Named("SenderDb")
+                .WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["MongoConnectionSender"].ConnectionString);
+
+            Bind<IMongoDbClient>()
+                .To<MongoDbClient>()
+                .WhenInjectedInto(typeof(ProductDbReceiver))
+                .InSingletonScope()
+                .Named("ReceiverDb")
+                
+                .WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["MongoConnectionReceiver"].ConnectionString);
+
+
+            Bind<IProductDbSender>()
                .To<ProductDbSender>()
                .InSingletonScope();
 
-            KernelInstance.Bind<MongoDbClientReceiver>()
-                .ToSelf()
-                .InSingletonScope()
-                .WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["MongoConnectionReceiver"].ConnectionString);
+//            KernelInstance.Bind<MongoDbClientReceiver>()
+//                .ToSelf()
+//                .InSingletonScope()
+//                .WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["MongoConnectionReceiver"].ConnectionString);
 
-            KernelInstance.Bind<IProductDbReceiver>()
+            Bind<IProductDbReceiver>()
                .To<ProductDbReceiver>()
                .InSingletonScope();
             //Producer
-            KernelInstance.Bind<IEngine>()
+            Bind<IEngine>()
                 .To<Engine>()
                 .InSingletonScope();
 
-            KernelInstance.Bind<IServicePublisher>()
+            Bind<IServicePublisher>()
                 .To<ServicePublisher>()
                 .InSingletonScope();
             //Consumer
-            KernelInstance.Bind<IConsumerEngine>()
+            Bind<IConsumerEngine>()
                 .To<ConsumerEngine>()
                 .InSingletonScope();
-            KernelInstance.Bind<IConsumerServiceReceiver>()
+            Bind<IConsumerServiceReceiver>()
                 .To<ConsumerServiceReceiver>()
                 .InSingletonScope();
         }

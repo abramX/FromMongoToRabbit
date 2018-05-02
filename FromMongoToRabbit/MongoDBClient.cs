@@ -2,7 +2,7 @@
 
 namespace FromMongoToRabbit
 {
-    public class MongoDbClient
+    public class MongoDbClient : IMongoDbClient
     {
         private readonly IMongoDatabase _mongoDatabase;
 

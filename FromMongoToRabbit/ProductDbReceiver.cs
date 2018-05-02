@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 
+
 namespace FromMongoToRabbit
 {
     public class ProductDbReceiver: IProductDbReceiver
     {
         private readonly IMongoCollection<Product> _mongoCollection;
 
-        public ProductDbReceiver(MongoDbClientReceiver mongoDbClient)
+        public ProductDbReceiver(IMongoDbClient mongoDbClient)
         {
             _mongoCollection = mongoDbClient.GetCollection<Product>("products");
         }
