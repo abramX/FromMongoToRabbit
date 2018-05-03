@@ -1,21 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace FromMongoToRabbit
 {
     public interface IProductDbSender
     {
-        void Save(Product product);
+        Task Save(Product product);
 
 
-        void Save(IList<Product> products);
+        Task Save(IList<Product> products);
 
 
-        void MarkAsProcessed(IEnumerable<Product> products);
+        Task MarkAsProcessed(IEnumerable<Product> products);
 
 
-        IList<Product> GetUnprocessed();
+        Task<IList<Product>> GetUnprocessed();
 
-        void FillMongoDb();
+        Task FillMongoDb();
 
     }
 }

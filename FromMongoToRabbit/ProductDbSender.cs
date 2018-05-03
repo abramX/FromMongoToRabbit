@@ -1,6 +1,7 @@
 ﻿using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace FromMongoToRabbit
 {
@@ -13,39 +14,37 @@ namespace FromMongoToRabbit
             _mongoCollection = mongoDbClient.GetCollection<Product>("products");
         }
 
-        public void Save(Product product)
+        public async Task Save(Product product)
         {
-            _mongoCollection.InsertOne(product);
+             await _mongoCollection.InsertOneAsync(product);
         }
-        public void Save(IList<Product> products)
+        public async Task Save(IList<Product> products)
         {
-            foreach(Product p in products)
+            foreach(var p in products)
             {
-                Save(p);
+                await Save(p);
             }
            
         }
 
-        public void MarkAsProcessed(IEnumerable<Product> products)
+        public async Task MarkAsProcessed(IEnumerable<Product> products)
         {
             var idList = products.Select(s => s.Id).ToList();
 
-            _mongoCollection.UpdateMany(
+            await _mongoCollection.UpdateManyAsync(
                     Builders<Product>.Filter.In(s => s.Id, idList),
                     Builders<Product>.Update.Set(s => s.Sent, true)
                 );
         }
 
-        public IList<Product> GetUnprocessed()
+        public async  Task<IList<Product>> GetUnprocessed()
         {
-            
-            return _mongoCollection
-                .Find(Builders<Product>.Filter.Where(s => s.Sent == false))
-                .ToList();
            
+            return await _mongoCollection
+                         .Find(Builders<Product>.Filter.Where(s => s.Sent == false)).ToListAsync();
         }
 
-        public void FillMongoDb()
+        public async Task FillMongoDb()
         {
 
             for (var i = 0; i < 50; i++)
@@ -61,7 +60,7 @@ namespace FromMongoToRabbit
                         Price = i * 10
                     }
                 };
-                Save(p);
+                await Save(p);
             }
         }
     }

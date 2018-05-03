@@ -1,8 +1,10 @@
-﻿namespace AppManager
+﻿using System.Threading.Tasks;
+
+namespace AppManager
 {
     public interface IEngine
     {
-        void Execute();
+        Task Execute();
         
     }
 }
