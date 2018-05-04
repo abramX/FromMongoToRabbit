@@ -1,4 +1,4 @@
-﻿namespace AppManager
+﻿namespace FromMongoToRabbit.Engine.Consumer
 {
     public interface IConsumerServiceReceiver
     {

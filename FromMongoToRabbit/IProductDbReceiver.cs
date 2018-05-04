@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using FromMongoToRabbit.MongoDB.Models;
 
-namespace FromMongoToRabbit
+namespace FromMongoToRabbit.MongoDB
 {
     public interface IProductDbReceiver
     {

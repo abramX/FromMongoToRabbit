@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace AppManager
+namespace FromMongoToRabbit.Engine.Producer
 {
     public interface IEngine
     {

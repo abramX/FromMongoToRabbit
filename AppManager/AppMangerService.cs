@@ -1,4 +1,7 @@
-﻿namespace AppManager
+﻿using FromMongoToRabbit.Engine.Consumer;
+using FromMongoToRabbit.Engine.Producer;
+
+namespace FromMongoToRabbit.Service
 {
     public class AppMangerService
     {

@@ -1,7 +1,8 @@
-﻿using log4net;
+﻿using FromMongoToRabbit.Engine.Producer;
+using log4net;
 using Quartz;
 
-namespace AppManager
+namespace FromMongoToRabbit.Service
 {
     public class SendMesssageJob : IJob
     {

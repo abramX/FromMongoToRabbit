@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AppManager
+namespace FromMongoToRabbit.Engine.Producer
 {
     public interface IServicePublisher
     {

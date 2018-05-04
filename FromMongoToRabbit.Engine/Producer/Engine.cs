@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Reflection;
 using System.Threading.Tasks;
-using FromMongoToRabbit;
+using FromMongoToRabbit.MongoDB;
 using log4net;
 using Polly;
 
-namespace AppManager
+namespace FromMongoToRabbit.Engine.Producer
 {
     public class Engine : IEngine
     {

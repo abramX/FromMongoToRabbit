@@ -7,7 +7,7 @@ using log4net;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 
-namespace AppManager
+namespace FromMongoToRabbit.Engine.Producer
 {
     public class ServicePublisher : IServicePublisher
     {

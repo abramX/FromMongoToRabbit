@@ -60,13 +60,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AppManager\AppManager.csproj">
+    <ProjectReference Include="..\AppManager\FromMongoToRabbit.Service.csproj">
       <Project>{d617b120-8d69-4d04-b95d-3f12d622ab06}</Project>
-      <Name>AppManager</Name>
+      <Name>FromMongoToRabbit.Service</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FromMongoToRabbit\FromMongoToRabbitLib.csproj">
+    <ProjectReference Include="..\FromMongoToRabbit.Engine\FromMongoToRabbit.Engine.csproj">
+      <Project>{ef10096f-b4c4-46f3-97d4-136eb93923e7}</Project>
+      <Name>FromMongoToRabbit.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FromMongoToRabbit\FromMongoToRabbit.MongoDB.csproj">
       <Project>{58450E83-AC62-477C-9D49-B5DAA6A9614E}</Project>
-      <Name>FromMongoToRabbitLib</Name>
+      <Name>FromMongoToRabbit.MongoDB</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

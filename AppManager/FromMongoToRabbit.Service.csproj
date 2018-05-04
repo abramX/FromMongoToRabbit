@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D617B120-8D69-4D04-B95D-3F12D622AB06}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>AppManager</RootNamespace>
-    <AssemblyName>AppManager</AssemblyName>
+    <RootNamespace>FromMongoToRabbit.Service</RootNamespace>
+    <AssemblyName>FromMongoToRabbit.Service</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -100,19 +100,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppMangerService.cs" />
-    <Compile Include="ConsumerEngine.cs" />
-    <Compile Include="ConsumerServiceReceiver.cs" />
-    <Compile Include="Engine.cs" />
-    <Compile Include="IConsumerEngine.cs" />
-    <Compile Include="IConsumerServiceReceiver.cs" />
-    <Compile Include="IEngine.cs" />
-    <Compile Include="IocInstaller.cs" />
-    <Compile Include="IServicePublisher.cs" />
+    <Compile Include="Ioc\IocInstaller.cs" />
     <Compile Include="Controller\ProductController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SendMesssageJob.cs" />
-    <Compile Include="ServicePublisher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -124,9 +116,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FromMongoToRabbit\FromMongoToRabbitLib.csproj">
+    <ProjectReference Include="..\FromMongoToRabbit.Engine\FromMongoToRabbit.Engine.csproj">
+      <Project>{ef10096f-b4c4-46f3-97d4-136eb93923e7}</Project>
+      <Name>FromMongoToRabbit.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FromMongoToRabbit\FromMongoToRabbit.MongoDB.csproj">
       <Project>{58450e83-ac62-477c-9d49-b5daa6a9614e}</Project>
-      <Name>FromMongoToRabbitLib</Name>
+      <Name>FromMongoToRabbit.MongoDB</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

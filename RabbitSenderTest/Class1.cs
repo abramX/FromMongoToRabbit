@@ -1,7 +1,9 @@
-﻿using AppManager;
+﻿using FromMongoToRabbit.Engine.Consumer;
+using FromMongoToRabbit.Engine.Producer;
 using NUnit.Framework;
 using Ninject;
-using FromMongoToRabbit;
+using FromMongoToRabbit.MongoDB;
+using FromMongoToRabbit.Service.Ioc;
 
 namespace RabbitSenderTest
 {

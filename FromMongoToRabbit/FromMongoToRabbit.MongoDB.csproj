@@ -7,8 +7,8 @@
     <ProjectGuid>{58450E83-AC62-477C-9D49-B5DAA6A9614E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FromMongoToRabbit</RootNamespace>
-    <AssemblyName>FromMongoToRabbit</AssemblyName>
+    <RootNamespace>FromMongoToRabbit.MongoDB</RootNamespace>
+    <AssemblyName>FromMongoToRabbit.MongoDB</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -54,12 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Catalog.cs" />
+    <Compile Include="Models\Catalog.cs" />
     <Compile Include="IMongoDbClient.cs" />
     <Compile Include="IProductDbReceiver.cs" />
     <Compile Include="IProductDbSender.cs" />
     <Compile Include="MongoDBClient.cs" />
-    <Compile Include="Product.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="ProductDbReceiver.cs" />
     <Compile Include="ProductDbSender.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

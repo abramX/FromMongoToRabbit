@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Reflection;
 using System.Web.Http;
+using FromMongoToRabbit.Service.Ioc;
 using log4net;
 using Polly;
 using Quartz;
@@ -12,7 +13,7 @@ using Topshelf.Quartz.Ninject;
 using Topshelf.WebApi;
 using Topshelf.WebApi.Ninject;
 
-namespace AppManager
+namespace FromMongoToRabbit.Service
 {
     internal static class Program
     {

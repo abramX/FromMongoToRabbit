@@ -1,8 +1,8 @@
-﻿using FromMongoToRabbit;
-using System.Web.Http;
+﻿using System.Web.Http;
+using FromMongoToRabbit.MongoDB;
 using log4net;
 
-namespace AppManager
+namespace FromMongoToRabbit.Service.Controller
 {
     [RoutePrefix("api/product")]
     public class ProductController : ApiController

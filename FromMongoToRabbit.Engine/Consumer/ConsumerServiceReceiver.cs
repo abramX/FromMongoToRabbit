@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Reflection;
 using System.Text;
-using FromMongoToRabbit;
+using FromMongoToRabbit.MongoDB;
+using FromMongoToRabbit.MongoDB.Models;
 using log4net;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
-namespace AppManager
+namespace FromMongoToRabbit.Engine.Consumer
 {
     public class ConsumerServiceReceiver : IConsumerServiceReceiver
     {

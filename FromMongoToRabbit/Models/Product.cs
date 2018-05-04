@@ -1,7 +1,7 @@
 ﻿using System;
 using MongoDB.Bson;
 
-namespace FromMongoToRabbit
+namespace FromMongoToRabbit.MongoDB.Models
 {
     public class Product
     {

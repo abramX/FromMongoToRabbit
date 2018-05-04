@@ -3,7 +3,7 @@ using System.Reflection;
 using log4net;
 using Polly;
 
-namespace AppManager
+namespace FromMongoToRabbit.Engine.Consumer
 {
     public class ConsumerEngine: IConsumerEngine
     {

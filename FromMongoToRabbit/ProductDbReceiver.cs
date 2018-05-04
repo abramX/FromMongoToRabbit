@@ -1,10 +1,10 @@
-﻿using MongoDB.Driver;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FromMongoToRabbit.MongoDB.Models;
+using MongoDB.Driver;
 
-
-namespace FromMongoToRabbit
+namespace FromMongoToRabbit.MongoDB
 {
     public class ProductDbReceiver: IProductDbReceiver
     {

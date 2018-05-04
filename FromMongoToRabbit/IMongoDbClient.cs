@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 
-namespace FromMongoToRabbit
+namespace FromMongoToRabbit.MongoDB
 {
     public interface IMongoDbClient
     {

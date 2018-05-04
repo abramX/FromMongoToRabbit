@@ -1,8 +1,10 @@
 ﻿using System.Configuration;
-using FromMongoToRabbit;
+using FromMongoToRabbit.Engine.Consumer;
+using FromMongoToRabbit.Engine.Producer;
+using FromMongoToRabbit.MongoDB;
 using Ninject.Modules;
 
-namespace AppManager
+namespace FromMongoToRabbit.Service.Ioc
 {
     public class IocInstaller : NinjectModule
     {
@@ -34,7 +36,7 @@ namespace AppManager
                .InSingletonScope();
             //Producer
             Bind<IEngine>()
-                .To<Engine>()
+                .To<Engine.Producer.Engine>()
                 .InSingletonScope();
 
             Bind<IServicePublisher>()
